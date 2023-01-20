@@ -1,0 +1,27 @@
+<h1 class="animated fadeIn">{{heroe.nombre |uppercase}} (<small>{{heroe.aparicion}}</small>)</h1>
+<hr>
+
+<div class="row animated fadeIn fast">
+    <div class="col-md-4">
+
+        <img [src]="heroe.img" class="img-fluid" [alt]="heroe.nombre">
+        <br><br>
+        <button type="button" class=" btn btn-outline-danger btn-block" [routerLink]="['/heroes']"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+            <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+          </svg>Regresar</button>
+
+    </div>
+
+    <div class="col-md-8">
+        <h3>{{heroe.nombre}}</h3>
+        <hr>
+        <p>{{heroe.bio}}</p>
+        <div *ngIf="heroe.casa =='DC';else elseCasa">
+            <img style="width: 185px;" src="assets/img/dc.jpg" class="img-fluid" [alt]="heroe.casa">
+        </div>
+        <ng-template #elseCasa>
+            <img style="width: 185px;" src="assets/img/marvel.png" class="img-fluid" [alt]="heroe.casa">
+        </ng-template>
+    </div>
+
+</div>
